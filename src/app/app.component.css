@@ -44,7 +44,7 @@ nav li {
 
 }
 nav > ul > li > a{
-	
+
 	color: #782b1c;
 	font-size: 20px;
 	text-decoration: none;
@@ -58,7 +58,7 @@ nav > ul > li > a::before{
 	display: block;
 	background-color: #444;
 	height: 5px;
-	
+
 	width: 0%;
 	top:0;
 	position: absolute;
@@ -95,7 +95,7 @@ form {
 }
 .visa{background-image:url(http://i.imgur.com/lXzJ1eB.png);}
 .mastercard{background-image:url(http://i.imgur.com/SJbRQF7.png);}
-/* change the opacity when either one is chosen*/ 
+/* change the opacity when either one is chosen*/
 .cc-selector input:active +.drinkcard-cc{opacity: .5;}
 .cc-selector input:checked +.drinkcard-cc{
     -webkit-filter: none;
@@ -133,7 +133,7 @@ p{margin-bottom:.3em;}
 	background-color: gray;
 	border: 0.5px solid black;
 	border-radius: 5px;
-	cursor: pointer; 
+	cursor: pointer;
 }
 
 #upload-button:hover{
