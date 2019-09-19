@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
+  processFile(imageInput: any){
+    debugger;
+    const file: File = imageInput.files[0];
+  }
   constructor() { }
 
   ngOnInit() {

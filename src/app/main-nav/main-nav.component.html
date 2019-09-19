@@ -1,28 +1,15 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+<mat-toolbar color="#C99342">
+  <span> Welcome to GaleArt</span>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="link.link"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
 
+</mat-toolbar>
+<router-outlet></router-outlet>
 
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link
-         *ngFor="let tab of tabs"
-         [routerLink]="tab.link"
-         routerLinkActive #rla="routerLinkActive"
-         [active]="rla.isActive"> {{ tab.name }}
-      </a>
-    </nav>
-
-  </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <button
-      type="button"
-      aria-label="Toggle sidenav"
-      mat-icon-button
-      (click)="drawer.toggle()">
-      <mat-icon aria-label="Side nav toggle icon">Menu</mat-icon>
-    </button>
-    <span></span>
-    <router-outlet></router-outlet>
-  </div>
-
-</mat-drawer-container>

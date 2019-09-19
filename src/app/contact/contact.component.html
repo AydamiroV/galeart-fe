@@ -1,12 +1,20 @@
-<div class="contact">
-  <h3>Send an email</h3>
+<div class = "contactForm">
+  <div class = "contact">
+    <h3> Contact Us </h3>
+    <mat-form-field>
+      <input matInput placeholder = "Full name" name ="fullName" size = "100" maxlength = 50>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder = "E-mail" name ="e-mail" size = "100" maxlength = 50>
+    </mat-form-field>
+    <br>
+    <br>
+    <textarea rows="10" cols="50" placeholder="Your thoughts about GaleArt..."></textarea>
+    <br>
+    <br>
+  </div>
+  <br><br>
 
-  <label>Full name</label><br>
-  <input type = "text" placeholder = "Enter your full name" ngModule = "fullname" size = "35"><br>
-  <label> E-mail address</label><br>
-  <input type = "text" placeholder = "Enter your email" ngModule = "email" size = "35"><br>
-  <label>Message:</label><br>
-  <textarea ngModule = "message" placeholder="What's on your mind?" style = "height: 350px; width: 257px;"></textarea>
-  <button (click)="submit()">Submit</button>
-
+  <button type="submit" (click)="submit()" class="btn btn-primary" >Submit</button>
 </div>

@@ -1,0 +1,63 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+<div class="paymentForm">
+  <div class = "cardHolder">
+    <mat-form-field>
+      <input matInput placeholder = "Cardholder's name" name ="cardholder" size = "50" maxlength="50" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder = "Exp. date: MM/YYYY" name ="expireDate" size = "50" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder = "XXXX-XXXX-XXXX-XXXX" name ="cardNumber" size = "50" pattern="[0-9]" maxlength="16" required>
+    </mat-form-field>
+    <br><br>
+
+  </div>
+  <br><br>
+  <div class = "billing">
+    <h3> Billing address </h3>
+    <mat-form-field>
+      <input matInput placeholder = "Street address" name ="firstName" size = "100" maxlength="50"
+             ng-model="ba.street" ng-disabled="sameAddress"required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder = "City" name ="lastName" size = "100" maxlength = "50" width="100"
+             ng-model="ba.city" ng-disabled="sameAddress"required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder = "Zip" name ="zipCode" size = "100" maxlength = "10" pattern="[0-9]"
+             ng-model="ba.zip" ng-disabled="sameAddress"required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder = "Country" name ="country" size = "100" maxlength="30"
+             ng-model="ba.country" ng-disabled="sameAddress"required>
+    </mat-form-field>
+    <br>
+    <input type="checkbox" ng-model="sameAddress" ng-change="sameAddress && update()" />Same as Shipping Address Address
+  </div>
+  <br>
+
+  <button type="submit" class="btn btn-primary" >Submit</button>
+  <br><br><br>
+  <a routerLink= "/order" style = " float:left;"> Prev. &raquo;</a>
+  <br><br><br>
+</div>
+
+
+<script>
+        angular.module('formExample', [])
+          .controller('ExampleController', ['$scope', function($scope) {
+            $scope.sa = {"sa.street", "sa.city", "sa.country", "sa.zip"};
+            $scope.ba = {"ba.street", "ba.city", "ba.country", "ba.zip" };
+
+            $scope.update = function(sa) {
+              $scope.ba = angular.copy($scope.sa);
+            };
+          }]);
+</script>

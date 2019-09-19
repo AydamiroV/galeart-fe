@@ -1,39 +1,44 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'main-nav',
+  selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.css']
 })
-export class MainNavComponent {
+export class MainNavComponent implements OnInit {
 
-  constructor() {}
-
-  tabs = [
-    {
-      name: 'Home',
-      link: '/home'
-    },
-    {
-          name: 'Gallery',
-          link: '/gallery'
-    },
-    {
-      name: 'Place order',
-      link: '/order'
-    },
-    {
-      name: 'About',
-      link: '/about'
-    },
-    {
-       name: 'Contact',
-       link: '/contact'
-    }
-  ];
-  activeLink = this.tabs[0];
-
-
+ title = 'angular-material-tab-router';
+ navLinks: any[];
+ activeLinkIndex = -1;
+  constructor(private router: Router){
+   this.navLinks = [
+       {
+           label: 'Home',
+           link: '/home',
+           index: 0
+       }, {
+           label: 'Gallery',
+           link: '/gallery',
+           index: 1
+       }, {
+           label: 'Order',
+           link: '/order',
+           index: 2
+       }, {
+           label: 'Contact',
+           link: '/contact',
+           index: 3
+       },{
+           label: 'About',
+           link: '/about',
+           index: 4
+       },
+   ];
+ }
+   ngOnInit(): void {
+     this.router.events.subscribe((res) => {
+         this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
+     });
+   }
 }

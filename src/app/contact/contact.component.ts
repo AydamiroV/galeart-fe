@@ -16,15 +16,15 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.fullName = '';
-      this.email = '';
-      this.message = '';
+      this.fullName = 'Namaz Gurbanov';
+      this.email = 'namaz.gurbanov@yahoo.com';
+      this.message = 'Hello World!';
   }
 
   submit() {
       this.http.post("/api/contact",
           {
-              fullName: this.fullName,
+              name: this.fullName,
               email: this.email,
               message: this.message
           }
